@@ -1,64 +1,77 @@
+import { MapPin, GraduationCap, Code2, Trophy, Terminal } from "lucide-react";
+import { profile } from "../data/profile";
 import Reveal from "./Reveal";
 
-const traits = [
-  { label: "Journey", text: "Physics background → self-taught frontend → full-stack training" },
-  { label: "Enjoys", text: "Backend logic, database design, and clean API architecture" },
-  { label: "Off-duty", text: "Following football, gaming, tech news & AI developments" },
-];
+
+const iconMap = {
+  MapPin: <MapPin size={20} />,
+  GraduationCap: <GraduationCap size={20} />,
+  Code2: <Code2 size={20} />,
+  Trophy: <Trophy size={20} />,
+  Terminal: <Terminal size={20} />,
+};
 
 export default function About() {
+  const { about } = profile;
+
   return (
-    <section id="about" className="py-24 md:py-32 px-5 md:px-8 bg-paper2/60">
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14">
-        <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-pine mb-3">About</p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ink tracking-tight">
-            A physicist's discipline,<br />a developer's curiosity.
-          </h2>
-          <div className="mt-8 space-y-4">
-            {traits.map((t, i) => (
-              <Reveal key={t.label} delay={0.1 + i * 0.08} y={16}>
-                <div className="flex gap-4 border-t border-line pt-4">
-                  <span className="font-mono text-xs uppercase tracking-wide text-terracotta w-24 shrink-0 pt-0.5">
-                    {t.label}
-                  </span>
-                  <span className="text-inkmuted text-sm leading-relaxed">{t.text}</span>
+    <section className="relative py-28 px-5 md:px-8 bg-slate-950 border-t border-white/5 z-10">
+      {/* Background Glows */}
+      <div className="absolute top-20 right-20 h-80 w-80 rounded-full bg-cyan-500/5 blur-[160px] opacity-60 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-indigo-500/5 blur-[160px] opacity-60 pointer-events-none" />
+
+      <div className="max-w-[1320px] mx-auto grid lg:grid-cols-[380px_1fr] gap-16 lg:gap-24 relative z-10">
+        
+        {/* Left: Profile Card */}
+        <div className="lg:sticky lg:top-24 h-fit self-start">
+          <Reveal>
+            <div className="p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/20">
+              <h3 className="text-xl font-bold text-white mb-8">Profile</h3>
+              <div className="space-y-6">
+                {about.profileItems.map((item) => (
+                  <div key={item.label} className="flex items-center gap-4 text-slate-300">
+                    <span className="text-cyan-400 shrink-0">{iconMap[item.icon]}</span>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-wider text-slate-500">{item.label}</p>
+                      <p className="text-sm font-medium">{item.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Right: Content */}
+        <div className="space-y-12">
+          <Reveal>
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight max-w-xl">
+              Building software with analytical thinking.
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="text-slate-300 text-lg leading-[1.9] space-y-7 max-w-[700px]">
+              {about.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+              <blockquote className="border-l-2 border-cyan-500 pl-4 italic text-cyan-100/80">
+                {about.quote}
+              </blockquote>
+            </div>
+          </Reveal>
+
+          {/* Traits */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {about.traits.map((t, i) => (
+              <Reveal key={t.label} delay={0.3 + i * 0.1}>
+                <div className="p-6 rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:border-cyan-500/20 hover:bg-white/[0.07] hover:-translate-y-1">
+                  <div className="mb-4 text-cyan-400">{iconMap[t.icon]}</div>
+                  <p className="text-cyan-400 font-mono text-xs mb-1">{t.label}</p>
+                  <p className="text-white font-medium">{t.text}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-        </Reveal>
-
-        <Reveal delay={0.15}>
-          <div className="text-ink/90 text-base md:text-lg leading-[1.85] space-y-5">
-            <p>
-              I started out studying Physics — four years of learning how to break big, messy
-              problems into small, provable steps. That habit followed me straight into code.
-              I picked up HTML, CSS, and JavaScript on my own first, building small things just
-              to see them work, before deciding to go all-in on web development through a
-              structured full-stack program.
-            </p>
-            <p>
-              What I enjoy most is the backend: designing a database schema that actually makes
-              sense, writing an API that behaves predictably, and watching a system hold together
-              under real use. I like the kind of problem where the fix isn't obvious at first —
-              where you have to sit with it, trace it back, and actually understand what's
-              happening under the hood. That's the physics habit again, refusing to let go.
-            </p>
-            <p>
-              Outside of code, I'm usually following football, catching up on tech and AI news, or
-              deep in a gaming session. I'm also drawn to Islamic studies and reflection — it keeps
-              me grounded while I chase deadlines and debug errors at 2 AM. I try to bring the same
-              thing to my work that I try to bring to everything else: patience, honesty about what
-              I don't yet know, and a steady effort to get a little better every day.
-            </p>
-            <p>
-              Right now, I'm focused on one goal — becoming a developer a team can rely on, and
-              landing my first junior role where I can keep learning while actually shipping real
-              work.
-            </p>
-          </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
