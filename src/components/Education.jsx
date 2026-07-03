@@ -13,43 +13,84 @@ const education = [
     institute: "Programming Hero",
     period: "2026 · In Progress",
     detail:
-      "Intensive full-stack training covering JavaScript, TypeScript, React, Node.js, Express, and PostgreSQL, with a strong emphasis on real-world backend architecture, authentication, and deployment.",
+      "Full-stack training focused on React, Node.js, TypeScript, PostgreSQL, authentication systems, and production-grade backend architecture.",
   },
 ];
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 md:py-32 px-5 md:px-8 bg-paper2/60">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="education"
+      className="relative py-28 px-5 md:px-8 bg-slate-950 overflow-hidden"
+    >
+      {/* glow background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-0 top-20 h-80 w-80 bg-cyan-500/5 blur-[160px]" />
+        <div className="absolute right-0 bottom-0 h-80 w-80 bg-indigo-500/5 blur-[160px]" />
+      </div>
+
+      <div className="max-w-[1100px] mx-auto relative z-10">
+
         <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-pine mb-3">Education</p>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ink tracking-tight mb-14">
-            Educational background
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400 mb-3">
+            Education
+          </p>
+
+          <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-tight mb-14">
+            Academic journey
           </h2>
         </Reveal>
 
-        <div className="space-y-0">
-          {education.map((e, i) => (
-            <Reveal key={e.degree} delay={i * 0.1} y={20}>
-              <div className="grid md:grid-cols-[100px_1fr] gap-4 md:gap-10 py-8 border-t border-line last:border-b">
-                <span className="font-mono text-sm text-terracotta">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                    <h3 className="font-display text-xl md:text-2xl font-semibold text-ink">
-                      {e.degree}
-                    </h3>
-                    <span className="font-mono text-xs uppercase tracking-wide text-muted">
-                      {e.period}
-                    </span>
+        {/* timeline line */}
+        <div className="relative">
+          <div className="absolute left-6 top-0 bottom-0 w-px bg-white/10" />
+
+          <div className="space-y-10">
+
+            {education.map((e, i) => (
+              <Reveal key={e.degree} delay={i * 0.1}>
+                <div
+                  className="
+                    relative pl-16 group
+                    transition-all duration-300
+                  "
+                >
+                  {/* dot */}
+                  <div className="absolute left-[22px] top-2 w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.6)]" />
+
+                  {/* card */}
+                  <div
+                    className="
+                      p-6 md:p-7 rounded-2xl
+                      bg-white/5 border border-white/10
+                      hover:border-cyan-400/30 hover:bg-white/10
+                      transition-all duration-300
+                      group-hover:translate-x-1
+                    "
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                      <h3 className="text-xl md:text-2xl font-semibold text-white">
+                        {e.degree}
+                      </h3>
+
+                      <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400">
+                        {e.period}
+                      </span>
+                    </div>
+
+                    <p className="text-cyan-400 font-medium text-sm mb-3">
+                      {e.institute}
+                    </p>
+
+                    <p className="text-slate-400 text-sm leading-relaxed">
+                      {e.detail}
+                    </p>
                   </div>
-                  <p className="text-pine text-sm font-medium mb-2">{e.institute}</p>
-                  <p className="text-inkmuted text-sm leading-relaxed max-w-2xl">{e.detail}</p>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+
+          </div>
         </div>
       </div>
     </section>
