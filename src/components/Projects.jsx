@@ -6,7 +6,7 @@ import { projects } from "../data/projects";
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative overflow-hidden py-28 px-5 md:px-8 bg-slate-950">
+    <section id="projects" className="reveal relative overflow-hidden py-28 px-5 md:px-8 bg-slate-950">
       
       <div className="max-w-[1320px] mx-auto relative">
         <Reveal>

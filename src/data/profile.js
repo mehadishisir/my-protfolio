@@ -10,12 +10,12 @@ export const profile = {
   phone: "+880 1312-151706",
   whatsapp: "+880 1312-151706",
   location: "Gazipur, Dhaka, Bangladesh",
-  photoUrl: "", 
+  photoUrl: "https://ibb.co.com/35VrnWfb", 
   resumeUrl: "#", 
   socials: [
-    { label: "GitHub", href: "https://github.com/yourusername", icon: Github },
-    { label: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: Linkedin },
-    { label: "Facebook", href: "https://facebook.com/yourusername", icon: Facebook },
+    { label: "GitHub", href: "https://github.com/mehadishisir", icon: Github },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/mehadishisir/", icon: Linkedin },
+    { label: "Facebook", href: "https://facebook.com/mehadishiisir", icon: Facebook },
   ],
 
   // --- About Section Data ---

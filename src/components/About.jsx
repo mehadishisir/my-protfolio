@@ -57,7 +57,7 @@ export default function About() {
         <div className="space-y-12">
           
           <Reveal>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight max-w-xl">
+            <h2 className="text-reveal text-4xl md:text-5xl font-bold text-white tracking-tight max-w-xl">
               Building software with analytical thinking.
             </h2>
           </Reveal>

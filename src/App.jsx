@@ -7,10 +7,13 @@ import GrainOverlay from "./components/GrainOverlay";
 import PageLoader from "./components/PageLoader";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
+import SmoothScroll from "./components/SmoothScroll";
+import "./lib/gsap";
 
 export default function App() {
   return (
     <BrowserRouter>
+    <SmoothScroll />
       <PageLoader />
       <GrainOverlay />
       <ScrollProgress />
