@@ -28,17 +28,11 @@ export default function Navbar() {
 
   useEffect(() => {
     if (location.pathname !== "/") return;
-    const sections = links
-      .map((l) => document.querySelector(l.href))
-      .filter(Boolean);
-    if (!sections.length) return;
-
+    const sections = links.map((l) => document.querySelector(l.href)).filter(Boolean);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(`#${entry.target.id}`);
-          }
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
         });
       },
       { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
@@ -49,9 +43,8 @@ export default function Navbar() {
 
   const goTo = (href) => {
     setOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/" + href);
-    } else {
+    if (location.pathname !== "/") navigate("/" + href);
+    else {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
@@ -59,96 +52,88 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
+      layout
+      initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-paper/90 backdrop-blur-md border-b border-line" : "bg-transparent"
-      }`}
+      className="fixed top-5 inset-x-0 z-50 px-4 md:px-6"
     >
-      <nav className="max-w-6xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => goTo("#home")}
-          className="font-display text-xl md:text-2xl font-semibold text-ink tracking-tight focus-ring rounded"
-        >
-          mehadi<span className="text-terracotta">.</span>dev
-        </motion.button>
+      <nav
+        className={`max-w-7xl mx-auto rounded-2xl border transition-all duration-500 ease-out ${
+          scrolled
+            ? "bg-slate-900/40 backdrop-blur-2xl border-cyan-400/10 shadow-2xl"
+            : "bg-transparent border-transparent"
+        }`}
+      >
+        <div className={`px-6 flex items-center justify-between transition-all duration-500 ${scrolled ? "h-[68px]" : "h-[78px]"}`}>
+          <motion.button
+            whileHover={{ scale: 1.08, rotate: -2, y: -2, textShadow: "0 0 35px rgba(34,211,238,.9)" }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => goTo("#home")}
+            className="font-display text-2xl md:text-3xl font-bold tracking-tight text-white transition-all duration-300 hover:text-cyan-400 focus-ring rounded"
+          >
+            mehadi<span className="text-cyan-400">.</span>
+            <span className="bg-gradient-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent">dev</span>
+          </motion.button>
 
-        <ul className="hidden lg:flex items-center gap-1 font-mono text-[13px] uppercase tracking-wide">
-          {links.map((l) => (
-            <li key={l.href}>
-              <button
-                onClick={() => goTo(l.href)}
-                className={`relative px-4 py-2 transition-colors focus-ring rounded group ${
-                  active === l.href ? "text-terracotta" : "text-inkmuted hover:text-terracotta"
-                }`}
-              >
-                {l.label}
-                <span
-                  className={`absolute left-4 right-4 -bottom-0.5 h-[1.5px] bg-terracotta origin-left transition-transform duration-300 ${
-                    active === l.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+          <ul className="hidden lg:flex items-center gap-1 font-mono text-[13px] uppercase tracking-wide">
+            {links.map((l) => (
+              <li key={l.href}>
+                <button
+                  onClick={() => goTo(l.href)}
+                  className={`relative px-4 py-2 rounded-lg transition-all duration-300 hover:-translate-y-0.5 focus-ring group ${
+                    active === l.href
+                      ? "text-cyan-300 font-semibold"
+                      : "text-slate-400 hover:text-cyan-300"
                   }`}
-                />
-              </button>
-            </li>
-          ))}
-        </ul>
+                >
+                  {l.label}
+                  <span
+                    className={`absolute left-4 right-4 -bottom-1 h-[3px] rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 origin-left transition-transform duration-300 ${
+                      active === l.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        <motion.button
-          whileHover={{ scale: 1.04, y: -1 }}
-          whileTap={{ scale: 0.96 }}
-          onClick={() => goTo("#contact")}
-          className="hidden lg:inline-flex items-center gap-2 bg-ink text-paper font-mono text-[13px] uppercase tracking-wide px-5 py-2.5 rounded-full hover:bg-pinedark transition-colors focus-ring"
-        >
-          Let's talk
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2, boxShadow: "0 0 40px rgba(6,182,212,.5)" }}
+            whileTap={{ scale: 0.96 }}
+            onClick={() => goTo("#contact")}
+            className="hidden lg:inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-gradient-to-r from-indigo-600 to-cyan-500 px-6 py-3 font-semibold uppercase tracking-widest text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(34,211,238,.5)] focus-ring"
+          >
+            Let's Talk
+          </motion.button>
 
-        <button
-          className="lg:hidden text-ink focus-ring rounded p-1"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={open ? "x" : "menu"}
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="inline-flex"
-            >
-              {open ? <X size={26} /> : <Menu size={26} />}
-            </motion.span>
-          </AnimatePresence>
-        </button>
+          <button
+            onClick={() => setOpen(!open)}
+            className="lg:hidden text-white p-2 rounded-xl hover:bg-white/5 transition-colors focus-ring"
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden bg-paper border-t border-line overflow-hidden"
+            initial={{ height: 0, opacity: 0, y: -20 }}
+            animate={{ height: "auto", opacity: 1, y: 0 }}
+            exit={{ height: 0, opacity: 0, y: -20 }}
+            className="lg:hidden mt-2 max-w-7xl mx-auto bg-slate-900/80 backdrop-blur-3xl border border-white/5 rounded-2xl overflow-hidden"
           >
-            <ul className="flex flex-col gap-1 font-mono text-sm uppercase tracking-wide px-5 pb-6 pt-2">
-              {links.map((l, i) => (
-                <motion.li
-                  key={l.href}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: i * 0.04 }}
-                >
+            <ul className="flex flex-col gap-1 font-mono text-sm uppercase tracking-wide px-5 py-6">
+              {links.map((l) => (
+                <li key={l.href}>
                   <button
                     onClick={() => goTo(l.href)}
-                    className="w-full text-left px-2 py-3 text-inkmuted hover:text-terracotta border-b border-line/70 focus-ring rounded"
+                    className="w-full text-left px-2 py-3 text-slate-400 hover:text-cyan-400 border-b border-white/5 rounded focus-ring"
                   >
                     {l.label}
                   </button>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </motion.div>

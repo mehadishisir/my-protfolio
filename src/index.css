@@ -7,31 +7,65 @@ html {
 }
 
 body {
-  background-color: #FAF8F2;
-  color: #182524;
+  background:
+    radial-gradient(circle at top, rgba(99,102,241,.12), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(34,211,238,.08), transparent 30%),
+    #030712;
+
+  color: #F8FAFC;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background-color: #C4622D;
-  color: #FAF8F2;
+::selection,
+::-moz-selection {
+  background: #6366F1;
+  color: #fff;
 }
 
 * {
-  scroll-margin-top: 88px;
+  scroll-margin-top: 96px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   * {
-    animation-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 }
 
 .focus-ring:focus-visible {
-  outline: 2px solid #C4622D;
-  outline-offset: 3px;
+  outline: 2px solid #6366F1;
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
