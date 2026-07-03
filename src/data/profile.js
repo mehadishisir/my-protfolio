@@ -1,4 +1,4 @@
-import { Github, Linkedin, Facebook, MapPin, GraduationCap, Code2, Trophy, Terminal } from "lucide-react";
+import { Github, Linkedin, Facebook } from "lucide-react";
 
 export const profile = {
   // --- Hero Section Data ---
@@ -18,7 +18,7 @@ export const profile = {
     { label: "Facebook", href: "https://facebook.com/yourusername", icon: Facebook },
   ],
 
-  // --- About Section Data (Added) ---
+  // --- About Section Data ---
   about: {
     heading: "Building software with analytical thinking.",
     paragraphs: [
@@ -36,6 +36,22 @@ export const profile = {
       { label: "Focus", text: "Analytical Problem Solving", icon: "Code2" },
       { label: "Stack", text: "React, Node.js, PostgreSQL", icon: "Terminal" },
       { label: "Mindset", text: "Building Scalable Systems", icon: "Trophy" },
-    ]
-  }
+    ],
+  },
+
+  // --- Experience Section Data (Moved out of about) ---
+  experience: [
+    {
+      id: "ph-fullstack",
+      role: "Full Stack Development Trainee",
+      org: "Programming Hero — Next Level Web Development",
+      period: "2026 — Present",
+      points: [
+        "Designed and built devPulse, a production-style REST API with JWT authentication, role-based access, and a normalized PostgreSQL schema.",
+        "Practiced end-to-end backend workflows including middleware, refresh-token authentication, and centralized error handling.",
+        "Deployed and debugged live applications on Render, resolving production environment issues.",
+        "Built responsive React applications using Tailwind CSS with accessibility and performance in mind."
+      ]
+    }
+  ],
 };
