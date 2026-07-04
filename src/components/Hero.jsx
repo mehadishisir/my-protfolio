@@ -150,9 +150,9 @@ export default function Hero() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 text-center">
             {[
-              { label: "Projects", value: 10 },
-              { label: "Experience", value: 2 },
-              { label: "Tech", value: 4 },
+              { label: "Projects", value: 3 },
+    { label: "Tech Stack", value: 8 },
+    { label: "Learning", value: 1.5 },
             ].map((i) => (
               <div
                 key={i.label}

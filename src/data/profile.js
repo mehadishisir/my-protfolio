@@ -1,3 +1,4 @@
+import profileImage from "../assets/linkdin.jpg";
 import { Github, Linkedin, Facebook } from "lucide-react";
 
 export const profile = {
@@ -10,7 +11,7 @@ export const profile = {
   phone: "+880 1312-151706",
   whatsapp: "+880 1312-151706",
   location: "Gazipur, Dhaka, Bangladesh",
-  photoUrl: "https://ibb.co.com/35VrnWfb", 
+  photoUrl: profileImage, 
   resumeUrl: "#", 
   socials: [
     { label: "GitHub", href: "https://github.com/mehadishisir", icon: Github },

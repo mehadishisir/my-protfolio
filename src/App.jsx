@@ -8,12 +8,12 @@ import PageLoader from "./components/PageLoader";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import SmoothScroll from "./components/SmoothScroll";
-import "./lib/gsap";
+// import "./lib/gsap";
 
 export default function App() {
   return (
     <BrowserRouter>
-    <SmoothScroll />
+    {/* <SmoothScroll /> */}
       <PageLoader />
       <GrainOverlay />
       <ScrollProgress />
