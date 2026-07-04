@@ -1,16 +1,157 @@
-# React + Vite
+# 🚀 Mehadi Hasan Shisir — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive, and animated developer portfolio built with **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**.
 
-Currently, two official plugins are available:
+🌐 **Live Demo:** https://my-protfolio-tau-two.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> Add a screenshot of your portfolio here.
 
-## Expanding the Oxlint configuration
+```text
+public/
+└── preview.png
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Then update this line:
+
+```md
+![Portfolio Preview](./public/preview.png)
+```
+
+---
+
+## ✨ Features
+
+* Responsive design
+* Smooth scroll navigation
+* Modern dark UI
+* Framer Motion animations
+* Interactive hero section
+* About section
+* Skills showcase
+* Education timeline
+* Experience section
+* Featured projects
+* Contact section
+* Resume download
+* SEO-friendly structure
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+* React
+* Vite
+* Tailwind CSS
+* Framer Motion
+* React Router
+* Lucide React
+* React Type Animation
+
+### Deployment
+
+* Vercel
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+│
+├── assets/
+├── components/
+│   ├── Navbar.jsx
+│   ├── Hero.jsx
+│   ├── About.jsx
+│   ├── Skills.jsx
+│   ├── Education.jsx
+│   ├── Experience.jsx
+│   ├── Projects.jsx
+│   ├── Contact.jsx
+│   └── Reveal.jsx
+│
+├── data/
+│   └── profile.js
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Resume.jsx
+│   └── ProjectDetails.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/mehadishisir/my-protfolio.git
+```
+
+Go to the project folder
+
+```bash
+cd my-protfolio
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Build for production
+
+```bash
+npm run build
+```
+
+Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+## 📬 Contact
+
+**Mehadi Hasan Shisir**
+
+📧 Email: [mehadishisir@gmail.com](mailto:mehadishisir@gmail.com)
+
+🌍 Location: Gazipur, Dhaka, Bangladesh
+
+### Social Links
+
+* GitHub: https://github.com/mehadishisir
+* LinkedIn: https://www.linkedin.com/in/mehadishisir/
+* Facebook: https://facebook.com/mehadishiisir
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub.
